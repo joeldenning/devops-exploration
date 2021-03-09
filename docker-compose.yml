@@ -1,0 +1,10 @@
+version: "3.0"
+services:
+  user:
+    build: user
+  settings:
+    build: settings
+    ports:
+      - "8300:8080"
+    links:
+      - "user"
