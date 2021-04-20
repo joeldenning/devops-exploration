@@ -13,7 +13,6 @@ jobs:
       #   uses: elgohr/gcloud-login-action@master
       #   with:
       #     account_key: ${{ secrets.GCP_SA_KEY }}
-      # - run: cd settings
       # - name: Publish to Registry
       #   uses: elgohr/Publish-Docker-Github-Action@master
       #   with:
@@ -21,6 +20,7 @@ jobs:
       #     username: ${{ steps.gcloud.outputs.username }}
       #     password: ${{ steps.gcloud.outputs.password }}
       #     registry: us.gcr.io
+      - run: cd settings
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@master
         with:
