@@ -2,7 +2,7 @@ const http = require('http')
 const axios = require('axios')
 
 http.createServer((req, res) => {
-  axios.default.get("http://user:8080").then(
+  axios.default.get("http://10.57.1.202/users").then(
     userResponse => {
       res.statusCode = 200;
       res.write("Settings service: " + userResponse.data)
