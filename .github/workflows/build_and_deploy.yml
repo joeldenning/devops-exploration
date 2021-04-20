@@ -20,7 +20,6 @@ jobs:
       #     username: ${{ steps.gcloud.outputs.username }}
       #     password: ${{ steps.gcloud.outputs.password }}
       #     registry: us.gcr.io
-      - run: cd settings
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@master
         with:
@@ -32,6 +31,7 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
+          file: ./settings/Dockerfile
           push: true
           tags: neural-passkey-248222/settings:latest
           repository: us.gcr.io
