@@ -42,4 +42,3 @@ jobs:
           context: ./settings
           push: true
           tags: neural-passkey-248222/settings:latest
-          registry: us.gcr.io
