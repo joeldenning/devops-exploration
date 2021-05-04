@@ -19,6 +19,7 @@ jobs:
           username: _json_key
           password: ${{ secrets.GCP_SA_KEY }}
       - name: Push to Docker Hub
+        id: buildPushImage
         uses: docker/build-push-action@v2
         with:
           context: ./settings
@@ -26,7 +27,7 @@ jobs:
           tags: us.gcr.io/neural-passkey-248222/settings:${{ github.sha }}
       - uses: danielr1996/envsubst-action@1.0.0
         env:
-          IMAGE: ${{ github.sha }}
+          IMAGE: ${{ steps.buildPushImage.outputs.digest }}
         with:
           input: settings/deployment.yaml
           output: settings/deployment-final.yaml
