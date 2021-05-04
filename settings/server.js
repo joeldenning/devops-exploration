@@ -5,7 +5,7 @@ http.createServer((req, res) => {
   axios.default.get("http://10.57.1.202/users").then(
     userResponse => {
       res.statusCode = 200;
-      res.write("Settings service: " + userResponse.data)
+      res.write("Settings service 2: " + userResponse.data)
       res.end()
     },
     err => {

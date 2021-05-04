@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: settings
+  annotations:
+    deployment.kubernetes.io/revision: "3"
+  creationTimestamp: "2021-03-23T21:31:01Z"
+  generation: 4
+  labels:
+    app: settings
+spec:
+  selector:
+    matchLabels:
+      app: settings
+  template:
+    metadata:
+      annotations:
+        seccomp.security.alpha.kubernetes.io/pod: runtime/default
+      creationTimestamp: null
+      labels:
+        app: settings
+    spec:
+      containers:
+      - name: settings-sha256-1
+        image: us.gcr.io/neural-passkey-248222/settings@$IMAGE
+        imagePullPolicy: IfNotPresent
