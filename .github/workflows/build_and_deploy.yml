@@ -39,6 +39,7 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
+          registry: us.gcr.io
           context: ./settings
           push: true
           tags: neural-passkey-248222/settings:latest
