@@ -30,6 +30,7 @@ jobs:
         with:
           input: settings/deployment.yaml
           output: settings/deployment-final.yaml
+      - run: cat settings/deployment-final.yaml
       - name: kubectl - Google Cloud GKE cluster.
         uses: ameydev/gke-kubectl-action@master
         env:
